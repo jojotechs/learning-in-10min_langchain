@@ -8,32 +8,33 @@ const prompt = PromptTemplate.fromTemplate(`您是一位会多种语言的专业
 
 const model = getChatModel(EModelName.CLAUDE_3_HAIKU);
 
-const buttons=[
-  {
-    input_language: "id",
-    input_text: "Dinding Hadiah",
-    output_language: "zh",
-  },
-  {
-    input_language: "ar",
-    input_text: "1. أرسل الكمية المطلوبة من الهدايا في وقت واحد لإضاءة الهدية على لوح هدايا المتلقي",
-    output_language: "en",
-  },
-  {
-    input_language: "zh",
-    input_text: "版本不兼容，请升级到最新版本",
-    output_language: "es",
-  },
+const buttons = [
+	{
+		input_language: "id",
+		input_text: "Dinding Hadiah",
+		output_language: "zh",
+	},
+	{
+		input_language: "ar",
+		input_text:
+			"1. أرسل الكمية المطلوبة من الهدايا في وقت واحد لإضاءة الهدية على لوح هدايا المتلقي",
+		output_language: "en",
+	},
+	{
+		input_language: "zh",
+		input_text: "版本不兼容，请升级到最新版本",
+		output_language: "es",
+	},
 ];
 
 const output = await Promise.all(
-  buttons.map(async ({ input_language, input_text, output_language }) => {
-    return await prompt.pipe(model).pipe(new StringOutputParser()).invoke({
-      input_language,
-      input_text,
-      output_language,
-    });
-  }),
+	buttons.map(async ({ input_language, input_text, output_language }) => {
+		return await prompt.pipe(model).pipe(new StringOutputParser()).invoke({
+			input_language,
+			input_text,
+			output_language,
+		});
+	}),
 );
 
 console.log(output);
