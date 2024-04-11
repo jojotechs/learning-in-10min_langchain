@@ -1,6 +1,5 @@
 {
 	"name": "learning-in-10min_langchain",
-	"module": "index.ts",
 	"type": "module",
 	"scripts": {
 		"biome-fix": "bunx @biomejs/biome check --apply-unsafe ./tutorial"
@@ -15,7 +14,9 @@
 	},
 	"dependencies": {
 		"@langchain/openai": "^0.0.26",
+		"d3-dsv": "2",
 		"dotenv": "^16.4.5",
-		"langchain": "^0.1.31"
+		"langchain": "^0.1.31",
+		"zod": "^3.22.4"
 	}
 }
