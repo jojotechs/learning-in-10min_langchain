@@ -39,6 +39,8 @@ const translationChain = RunnableSequence.from([
 	new StringOutputParser(),
 ]);
 
+// console.log(translationChain.getGraph())
+
 // 调用链来翻译句子
 const result = await translationChain.invoke({
 	sentence: "Dinding Hadiah",
