@@ -90,7 +90,7 @@ const tools = [
 const agentPrompt = await pull<PromptTemplate>("hwchase17/react");
 
 const agent = await createReactAgent({
-	llm: getChatModel(EModelName.CLAUDE_3_HAIKU),
+	llm: getChatModel(EModelName.CLAUDE_3_HAIKU, 0.1),
 	tools,
 	prompt: agentPrompt,
 });
